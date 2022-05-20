@@ -1,0 +1,57 @@
+html,
+body {
+  background: black;
+  color: var(--bs-light);
+}
+
+input {
+  background-color: #e5e5e5 !important;
+}
+
+.float-right {
+  float: right;
+}
+
+.form-control:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+.logo {
+  width: 100%;
+  padding-right: 4px;
+  max-width: 600px;
+}
+
+.alert {
+  padding: 0.2rem 0.8rem;
+}
+
+.scan-card {
+  min-height: 400px;
+  min-width: 300px;
+}
+
+.scan-card .datetime {
+  color: #cdcdcd;
+}
+
+.scan-card .preview {
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.modal-header {
+  border-bottom: 1px solid #bbbcbd;
+}
+
+.modal-footer {
+  border-top: 1px solid #bbbcbd;
+}
+
+.footer {
+  margin-top: 20px;
+  background-color: #333;
+}
