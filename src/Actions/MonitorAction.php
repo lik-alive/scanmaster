@@ -11,6 +11,10 @@ class MonitorAction
 {
     public function view(Request $request, Response $response)
     {
+        if (!isset($_SESSION['user'])) {
+            return redirect($response, '/login');
+        }
+
         $scans = [];
         $folder = storage_path('scans/');
         $files = glob($folder . 'Scan*');
@@ -23,7 +27,8 @@ class MonitorAction
                 'file' => basename($file),
                 'mtime' => $mtime,
                 'date' => date("Y-m-d", $mtime),
-                'time' => date("H:i:s", $mtime)
+                'time' => date("H:i:s", $mtime),
+                'is_pdf' => $ext === 'pdf'
             ];
 
             // Create preview for pdf-files
@@ -33,10 +38,10 @@ class MonitorAction
                 if (!file_exists($prev)) {
                     $pdf_arg = escapeshellarg($file);
                     $jpg_arg = escapeshellarg($prev);
+
                     exec("convert -density 72 {$pdf_arg} {$jpg_arg}");
                 }
 
-                $scan['is_pdf'] = true;
                 if (file_exists($prev)) {
                     $scan['prev'] = basename($prev);
                 }

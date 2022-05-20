@@ -27,7 +27,7 @@ class AuthAction
         $data = [
             'csrf_name' => $request->getAttribute('csrf_name'),
             'csrf_value' => $request->getAttribute('csrf_value'),
-            'error' => $_SESSION['error']
+            'error' => $_SESSION['error'] ?? null
         ];
         $_SESSION['error'] = null;
 
@@ -38,7 +38,7 @@ class AuthAction
     {
         $all = $request->getParsedBody();
         if ($all['username'] !== env('USERNAME') || $all['password'] !== env('PASSWORD')) {
-            $_SESSION['error'] = 'Неверное имя пользователя/пароль';
+            $_SESSION['error'] = 'Неверное имя/пароль';
 
             return redirect($response, '/login');
 

@@ -21,18 +21,18 @@
           @endif
 
           <div class=" mb-3">
-            <input type='text' class="form-control" name='username' placeholder="Username" autocomplete="on" required />
+            <input type='text' class="form-control" name='username' placeholder="Имя пользователя" autocomplete="on" required />
           </div>
 
           <div class="mb-4">
-            <input type='password' class="form-control" name='password' placeholder="Password" autocomplete="on" required />
+            <input type='password' class="form-control" name='password' placeholder="Пароль" autocomplete="on" required />
           </div>
         </form>
 
         <hr class='mx-4' />
 
         <div class='d-grid mt-4'>
-          <button form='form' class='btn btn-light btn-block'>Enter</button>
+          <button form='form' class='btn btn-light btn-lg btn-block'>Enter</button>
         </div>
       </div>
     </div>

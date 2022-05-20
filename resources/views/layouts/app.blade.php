@@ -28,7 +28,7 @@
     <div class='text-center mb-3 mb-md-5'>
       <img class='logo mt-2 mt-md-4' src="{{ env('BASE_PATH') }}/logo.png" />
 
-      @if($_SESSION['user'])
+      @if(isset($_SESSION['user']))
       <a class='btn btn-dark me-2' href="{{ env('BASE_PATH') }}/logout" title='Выйти'>
         <i class="bi-door-closed" style="font-size:1.3rem"></i>
       </a>

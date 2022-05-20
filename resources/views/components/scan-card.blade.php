@@ -10,7 +10,7 @@
     <div class='card-text flex-fill d-flex flex-column'>
       <a class='d-flex flex-fill' href="{{ env('BASE_PATH') }}/preview/{{ $scan['file']}}" target='_blank'>
         @if($scan['is_pdf'])
-        @if($scan['prev'])
+        @if(isset($scan['prev']))
         <div class='preview' style="background-image: url({{ env('BASE_PATH') }}/preview/{{ $scan['prev']}})"></div>
         @else
         <div class='preview my-4 mx-4' style="background-image: url({{ env('BASE_PATH') }}/pdf.png"></div>
