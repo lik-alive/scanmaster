@@ -19,7 +19,7 @@ class FileAction
     public function download(Request $request, Response $response, $args)
     {
         $path = storage_path('scans/') . $args['name'];
-        $this->stream($response, $args);
+        $this->stream($response, $path);
     }
 
     public function mass(Request $request, Response $response)

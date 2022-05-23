@@ -1,6 +1,6 @@
 <div id='mass-container' class='d-none fixed-bottom justify-content-end'>
   <div class="align-self-center me-3">
-    Скачать <span class='count'></span>
+    Выделено: <span class='count'></span>
   </div>
 
   <form id='form' method='POST' action="{{ env('BASE_PATH') }}/mass">
