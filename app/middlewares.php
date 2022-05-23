@@ -15,5 +15,5 @@ return function (App $app) {
     });
 
     // Register Middleware To Be Executed On All Routes
-    $app->add('csrf');
+    // $app->add('csrf');
 };

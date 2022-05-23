@@ -30,11 +30,6 @@ $routes = require __DIR__ . '/../app/routes.php';
 $routes($app);
 
 // Handle errors
-if (env('APP_DEBUG') === true) {
-  $app->addErrorMiddleware(true, false, false);
-}
-try {
-  $app->run();
-} catch (Exception $e) {
-  return $app->getResponseFactory()->createResponse(404);
-}
+$app->addErrorMiddleware(env('APP_DEBUG'), false, false);
+
+$app->run();

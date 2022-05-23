@@ -9,15 +9,18 @@
 </div>
 
 @include('components.delete-dialog')
+@include('components.mass-download')
+
 
 <script>
+  // Handle share buttons
   document.querySelectorAll('button.share').forEach(item => {
     item.addEventListener('click', event => {
       navigator.share({
         title: item.dataset.name,
         url: item.dataset.url
-      })
-    })
+      });
+    });
   });
 </script>
 @endsection

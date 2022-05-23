@@ -6,24 +6,47 @@ namespace App\Actions;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use ZipArchive;
 
 class FileAction
 {
     public function preview(Request $request, Response $response, $args)
     {
-        $this->stream($response, $args, false);
+        $path = storage_path('scans/') . $args['name'];
+        $this->stream($response, $path, false);
     }
 
     public function download(Request $request, Response $response, $args)
     {
+        $path = storage_path('scans/') . $args['name'];
         $this->stream($response, $args);
     }
 
-    public function stream($response, $args, $download = true)
+    public function mass(Request $request, Response $response)
     {
-        $name = $args['name'];
-        $path = storage_path('scans/') . $name;
+        $files = json_decode($request->getParsedBody()['files']);
 
+        $path = tempnam(storage_path('temp/'), 'mass');
+        $zip = new ZipArchive();
+        $zip->open($path, ZipArchive::OVERWRITE);
+
+        foreach ($files as $file) {
+            $file_path = storage_path('scans/') . $file;
+            if (!file_exists($file_path)) continue;
+
+            $zip->addFile($file_path, basename($file_path));
+        }
+
+        $zip->close();
+
+        // Remove file after execution
+        register_shutdown_function('unlink', $path);
+
+        $this->stream($response, $path, true, 'scans_' . date('Y-m-d_H-i-s') . ".zip");
+    }
+
+    public function stream($response, $path, $download = true, $filename = null)
+    {
         if (!file_exists($path)) {
             return $response->withStatus(404);
         }
@@ -42,7 +65,9 @@ class FileAction
             }
         }
 
-        header('Content-Disposition: inline; filename=' . basename($path));
+        $filename = $filename ?? basename($path);
+
+        header('Content-Disposition: inline; filename=' . $filename);
         header('Content-Transfer-Encoding: binary');
         header('Accept-Ranges: bytes');
 
@@ -54,7 +79,7 @@ class FileAction
         $name = $args['name'];
         $folder = storage_path('scans/');
         $path = $folder . $name;
-        
+
         if (file_exists($path)) {
             // Delete file
             unlink($path);

@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body">
         Вы точно хотите удалить файл <span class='filename'></span>?
-        <form id='dm_form' method='POST' action="asd">
+        <form id='dm_form' method='POST'>
           <input type='hidden' name='csrf_name' value='{{ $csrf_name }}' />
           <input type='hidden' name='csrf_value' value='{{ $csrf_value }}' />
         </form>

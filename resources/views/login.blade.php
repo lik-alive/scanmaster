@@ -32,7 +32,7 @@
         <hr class='mx-4' />
 
         <div class='d-grid mt-4'>
-          <button form='form' class='btn btn-light btn-lg btn-block'>Enter</button>
+          <button form='form' class='btn btn-light btn-lg btn-block'><i class="bi-door-open-fill me-2"></i>Enter</button>
         </div>
       </div>
     </div>

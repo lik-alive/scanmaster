@@ -4,7 +4,8 @@ body {
   color: var(--bs-light);
 }
 
-input {
+input[type="text"],
+input[type="password"] {
   background-color: #e5e5e5 !important;
 }
 
@@ -28,8 +29,29 @@ input {
 }
 
 .scan-card {
-  min-height: 400px;
   min-width: 300px;
+  max-width: 400px;
+  aspect-ratio: 0.8;
+}
+
+.scan-card .form-check {
+  font-size: 18pt;
+  font-weight: 500;
+  padding-left: 0;
+}
+
+.scan-card .form-check .form-check-input {
+  box-shadow: none !important;
+  border-color: #333 !important;
+  margin-left: 0;
+}
+
+.scan-card .form-check .form-check-input:checked {
+  background-color: black;
+}
+
+.scan-card .form-check label {
+  padding-left: 15px;
 }
 
 .scan-card .datetime {
@@ -37,10 +59,9 @@ input {
 }
 
 .scan-card .preview {
+  height: 100%;
   width: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  object-fit: contain;
 }
 
 .modal-header {
@@ -51,7 +72,15 @@ input {
   border-top: 1px solid #bbbcbd;
 }
 
+#mass-container {
+  padding: 10px 20px;
+  background: #018eab;
+  opacity: 0.94;
+  display: flex;
+}
+
 .footer {
   margin-top: 20px;
   background-color: #333;
+  user-select: none;
 }
