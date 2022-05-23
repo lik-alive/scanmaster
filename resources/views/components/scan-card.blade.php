@@ -1,13 +1,14 @@
 <div class='card bg-dark flex-grow-1 scan-card'>
   <div class='card-body d-flex flex-column'>
-    <div class='card-title mb-3'>
-      <button class='btn btn-outline-danger float-right' data-name="{{ $scan['file'] }}" data-url="{{ env('BASE_PATH') }}/delete/{{ $scan['file']}}" title='Удалить' data-bs-toggle="modal" data-bs-target="#deleteModal">
-        <i class="bi-trash" style="font-size:1.3rem"></i>
-      </button>
-      <div class='form-check'>
+    <div class='card-title d-flex mb-3'>
+      <div class='form-check align-self-center'>
         <input class="form-check-input check" type="checkbox" id="{{ $scan['file'] }}" autocomplete="off">
         <label for="{{ $scan['file'] }}">{{ $scan['file'] }}</h4>
       </div>
+
+      <button class='btn btn-outline-danger float-right ms-auto' data-name="{{ $scan['file'] }}" data-url="{{ env('BASE_PATH') }}/delete/{{ $scan['file']}}" title='Удалить' data-bs-toggle="modal" data-bs-target="#deleteModal">
+        <i class="bi-trash" style="font-size:1.3rem"></i>
+      </button>
     </div>
 
     <div class='card-text flex-fill d-flex flex-column'>

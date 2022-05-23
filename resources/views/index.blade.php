@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class='d-flex flex-wrap gap-3 mx-5 justify-content-center'>
+<div class='d-flex flex-wrap gap-3 mx-2 mx-md-5 justify-content-center'>
   @foreach ($scans as $scan)
   @include('components.scan-card', ['scan' => $scan])
   @endforeach
