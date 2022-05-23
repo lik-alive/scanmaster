@@ -1,5 +1,5 @@
-<div class='card bg-dark flex-grow-1 scan-card overflow-hidden'>
-  <div class='card-body d-flex flex-column overflow-hidden'>
+<div class='card bg-dark flex-grow-1 scan-card'>
+  <div class='card-body d-flex flex-column'>
     <div class='card-title mb-3'>
       <button class='btn btn-outline-danger float-right' data-name="{{ $scan['file'] }}" data-url="{{ env('BASE_PATH') }}/delete/{{ $scan['file']}}" title='Удалить' data-bs-toggle="modal" data-bs-target="#deleteModal">
         <i class="bi-trash" style="font-size:1.3rem"></i>
@@ -10,9 +10,9 @@
       </div>
     </div>
 
-    <div class='card-text flex-fill d-flex flex-column overflow-hidden'>
-      <div class='d-flex flex-fill align-items-center align-self-center overflow-hidden'>
-        <a href="{{ env('BASE_PATH') }}/preview/{{ $scan['file']}}" target='_blank' style='display:contents'>
+    <div class='card-text flex-fill d-flex flex-column'>
+      <div class='d-flex flex-fill align-items-center align-self-center'>
+        <a href="{{ env('BASE_PATH') }}/preview/{{ $scan['file']}}" target='_blank'>
           @if($scan['is_pdf'])
           @if(isset($scan['prev']))
           <img class='preview' src="{{ env('BASE_PATH') }}/preview/{{ $scan['prev']}}" />

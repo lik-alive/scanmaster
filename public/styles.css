@@ -31,7 +31,7 @@ input[type="password"] {
 .scan-card {
   min-width: 300px;
   max-width: 400px;
-  aspect-ratio: 0.8;
+  aspect-ratio: 0.78;
 }
 
 .scan-card .form-check {
@@ -59,9 +59,8 @@ input[type="password"] {
 }
 
 .scan-card .preview {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
+  max-width: 350px;
+  max-height: 350px;
 }
 
 .modal-header {
