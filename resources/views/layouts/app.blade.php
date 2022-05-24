@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class='h-100'>
+<html lang="ru" class='h-100'>
 
 <head xmlns:og="http://ogp.me/ns#">
   <meta charset="utf-8" />
@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="icon" href="{{ env('BASE_PATH') }}/favicon.ico" />
 
-  <title>Scan Master</title>
+  <title>SCAN Master</title>
   <meta name="description" content="Shared environment for scanned documents" />
 
   <meta property="og:title" content="Scan Master" />
   <meta property="og:url" content="https://scanmaster.ddns.net" />
   <meta property="og:description" content="Shared environment for scanned documents" />
-  <meta property="og:image" content="https://scanmaster.ddns.net/logo.png" />
+  <meta property="og:image" content="https://scanmaster.ddns.net/charm.png" />
   <meta property="og:site_name" content="Scan Master" />
   <meta property="og:type" content="website" />
 
