@@ -6,6 +6,8 @@ use DI\Container;
 use Slim\Factory\AppFactory;
 use Dotenv\Dotenv;
 
+date_default_timezone_set("Europe/Samara");
+
 // Start PHP session
 session_start();
 
