@@ -38,7 +38,7 @@
   </main>
 
   <footer class='footer mt-auto py-2 px-3 text-center'>
-    2022-2022 — Scan Master
+    2022-2022 — SCAN Master
     <span class='float-end'>©LIK</span>
   </footer>
 

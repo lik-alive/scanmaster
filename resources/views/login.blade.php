@@ -3,9 +3,9 @@
 @section('content')
 
 <div class='d-flex justify-content-center'>
-  <div class='card bg-dark flex-grow-1' style='max-width:350px'>
+  <div class='card bg-dark flex-grow-1 mt-5' style='max-width:350px'>
     <div class='card-body'>
-      <h3 class='card-title mb-4 text-center'>Login</h3>
+      <h3 class='card-title mb-4 text-center'>Логин</h3>
       <div class='card-text'>
         <form id='form' method='POST' action="{{ env('BASE_PATH') }}/login">
           <input type='hidden' name='csrf_name' value='{{ $csrf_name }}' />
@@ -32,7 +32,7 @@
         <hr class='mx-4' />
 
         <div class='d-grid mt-4'>
-          <button form='form' class='btn btn-light btn-lg btn-block'><i class="bi-door-open-fill me-2"></i>Enter</button>
+          <button form='form' class='btn btn-light btn-lg btn-block'><i class="bi-door-open-fill me-2"></i>Войти</button>
         </div>
       </div>
     </div>

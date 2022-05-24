@@ -13,6 +13,13 @@
 
 
 <script>
+  // Enable share buttons
+  if (navigator.share) {
+    document.querySelectorAll('button.share').forEach(item => {
+      item.classList.remove('d-none');
+    });
+  }
+
   // Handle share buttons
   document.querySelectorAll('button.share').forEach(item => {
     item.addEventListener('click', event => {

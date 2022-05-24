@@ -13,7 +13,7 @@
 
     <div class='card-text flex-fill d-flex flex-column'>
       <div class='d-flex flex-fill align-items-center align-self-center'>
-        <a href="{{ env('BASE_PATH') }}/preview/{{ $scan['file']}}" target='_blank'>
+        <a href="{{ env('BASE_PATH') }}/preview/{{ $scan['file']}}" target='_blank' title="Просмотр">
           @if($scan['is_pdf'])
           @if(isset($scan['prev']))
           <img class='preview' src="{{ env('BASE_PATH') }}/preview/{{ $scan['prev']}}" />
@@ -38,7 +38,7 @@
             <i class="bi-download" style="font-size:1.3rem"></i>
           </a>
 
-          <button class='btn btn-outline-info share' data-name="{{ $scan['file'] }}" data-url="{{ env('BASE_PATH') }}/download/{{ $scan['file']}}" title='Поделиться'>
+          <button class='btn btn-outline-info share d-none' data-name="{{ $scan['file'] }}" data-url="{{ env('BASE_PATH') }}/download/{{ $scan['file']}}" title='Поделиться'>
             <i class="bi-share" style="font-size:1.3rem"></i>
           </button>
         </div>
