@@ -10,11 +10,11 @@
   <title>SCAN Master</title>
   <meta name="description" content="Shared environment for scanned documents" />
 
-  <meta property="og:title" content="Scan Master" />
+  <meta property="og:title" content="SCAN Master" />
   <meta property="og:url" content="https://scanmaster.ddns.net" />
   <meta property="og:description" content="Shared environment for scanned documents" />
-  <meta property="og:image" content="https://scanmaster.ddns.net/charm.png" />
-  <meta property="og:site_name" content="Scan Master" />
+  <meta property="og:image" content="https://scanmaster.ddns.net/charm.jpg" />
+  <meta property="og:site_name" content="SCAN Master" />
   <meta property="og:type" content="website" />
 
 
