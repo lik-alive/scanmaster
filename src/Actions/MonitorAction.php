@@ -34,8 +34,11 @@ class MonitorAction
             // Create preview for pdf-files
             if ($ext === 'pdf') {
                 $prev = $folder . 'prev_' . $name . '.jpg';
+                $prev_stub = $folder . 'prev_' . $name . '.st';
 
-                if (!file_exists($prev)) {
+                if (!file_exists($prev_stub)) {
+                    file_put_contents($prev_stub, 0);
+
                     $pdf_arg = escapeshellarg($file);
                     $jpg_arg = escapeshellarg($prev);
 
