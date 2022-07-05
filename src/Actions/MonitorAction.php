@@ -34,15 +34,16 @@ class MonitorAction
             // Create preview for pdf-files
             if ($ext === 'pdf') {
                 $prev = $folder . 'prev_' . $name . '.jpg';
-                $prev_stub = $folder . 'prev_' . $name . '.st';
 
-                if (!file_exists($prev_stub)) {
-                    file_put_contents($prev_stub, 0);
-
+                if (!file_exists($prev)) {
                     $pdf_arg = escapeshellarg($file);
                     $jpg_arg = escapeshellarg($prev);
 
-                    exec("convert -density 72 {$pdf_arg} {$jpg_arg}");
+                    // Prevent task overlapping
+                    exec("tasklist /fi \"ImageName eq convert.exe\"", $task_list);
+                    if (count($task_list) === 1) {
+                        exec("convert -density 72 {$pdf_arg} {$jpg_arg}");
+                    }
                 }
 
                 if (file_exists($prev)) {
