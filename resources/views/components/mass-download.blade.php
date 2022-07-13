@@ -1,9 +1,14 @@
-<div id='mass-container' class='d-none fixed-bottom justify-content-end'>
-  <div class="align-self-center me-3">
-    Выделено: <span class='count'></span>
-  </div>
+<div id='mass-container' class='d-none fixed-bottom'>
+  <form id='form' method='POST' action="{{ env('BASE_PATH') }}/mass" class='d-flex w-100'>
+    <button type='button' class='btn btn-danger delete me-auto' data-names="" title='Удалить выбранные' data-bs-toggle="modal" data-bs-target="#deleteModal">
+      <i class="bi-trash" style="font-size:1.3rem"></i>
+    </button>
 
-  <form id='form' method='POST' action="{{ env('BASE_PATH') }}/mass">
+
+    <div class="align-self-center mx-3">
+      Выделено: <span class='count'></span>
+    </div>
+
     <input type='hidden' name='csrf_name' value='{{ $csrf_name }}' />
     <input type='hidden' name='csrf_value' value='{{ $csrf_value }}' />
     <input type='hidden' name='files' />
@@ -43,5 +48,15 @@
     });
 
     document.querySelector('#mass-container input[name=files]').value = JSON.stringify(files);
+  });
+
+  // Handle mass delete
+  document.querySelector('#mass-container .delete').addEventListener('mousedown', event => {
+    const files = [];
+    document.querySelectorAll('input.check:checked').forEach(item => {
+      files.push(item.id);
+    });
+
+    document.querySelector('#mass-container .delete').setAttribute('data-names', JSON.stringify(files));
   });
 </script>

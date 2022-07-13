@@ -9,10 +9,11 @@ use Slim\App;
 
 return function (App $app) {
     $app->get('/', [MonitorAction::class, 'view'])->add('csrf');
+
     $app->get('/preview/{name}', [FileAction::class, 'preview']);
     $app->get('/download/{name}', [FileAction::class, 'download']);
     $app->post('/mass', [FileAction::class, 'mass']);
-    $app->post('/delete/{name}', [FileAction::class, 'delete'])->add('csrf');
+    $app->post('/delete', [FileAction::class, 'delete'])->add('csrf');
 
     $app->get('/login', [AuthAction::class, 'view_login'])->add('csrf');
     $app->post('/login', [AuthAction::class, 'login'])->add('csrf');

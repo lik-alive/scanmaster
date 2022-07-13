@@ -6,7 +6,7 @@
         <label for="{{ $scan['file'] }}">{{ $scan['file'] }}</h4>
       </div>
 
-      <button class='btn btn-outline-danger float-right ms-auto' data-name="{{ $scan['file'] }}" data-url="{{ env('BASE_PATH') }}/delete/{{ $scan['file']}}" title='Удалить' data-bs-toggle="modal" data-bs-target="#deleteModal">
+      <button class='btn btn-outline-danger float-right ms-auto' data-names='["{{ $scan["file"] }}"]' title='Удалить' data-bs-toggle="modal" data-bs-target="#deleteModal">
         <i class="bi-trash" style="font-size:1.3rem"></i>
       </button>
     </div>

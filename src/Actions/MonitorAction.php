@@ -39,8 +39,6 @@ class MonitorAction
                     $pdf_arg = escapeshellarg($file);
                     $jpg_arg = escapeshellarg($prev);
 
-                    var_dump($prev);
-
                     // Prevent task overlapping
                     exec("tasklist /fi \"ImageName eq convert.exe\"", $task_list);
                     if (count($task_list) === 1) {

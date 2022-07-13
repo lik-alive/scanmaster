@@ -7,10 +7,11 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Вы точно хотите удалить файл <span class='filename'></span>?
-        <form id='dm_form' method='POST'>
+        Вы точно хотите удалить файл<span class='multiple'>ы:</span> <span class='filenames'></span>?
+        <form id='dm_form' method='POST' action="{{ env('BASE_PATH') }}/delete">
           <input type='hidden' name='csrf_name' value='{{ $csrf_name }}' />
           <input type='hidden' name='csrf_value' value='{{ $csrf_value }}' />
+          <input type='hidden' name='names' value='' />
         </form>
       </div>
       <div class="modal-footer">
@@ -24,8 +25,15 @@
   document.getElementById('deleteModal').addEventListener('show.bs.modal', event => {
     const button = event.relatedTarget;
 
-    document.querySelector('#deleteModal .filename').textContent = button.dataset.name;
+    document.querySelector('#deleteModal input[name=names]').value = button.dataset.names;
 
-    document.querySelector('#deleteModal #dm_form').action = button.dataset.url;
+    const names = JSON.parse(button.dataset.names);
+    document.querySelector('#deleteModal .multiple').classList.toggle('d-none', names.length === 1);
+
+    let filenames = names[0];
+    for (let i = 1; i < names.length; i++) {
+      filenames += ', ' + names[i];
+    }
+    document.querySelector('#deleteModal .filenames').textContent = filenames;
   });
 </script>

@@ -76,18 +76,21 @@ class FileAction
 
     public function delete(Request $request, Response $response, $args)
     {
-        $name = $args['name'];
+        $names = json_decode($request->getParsedBody()['names']);
         $folder = storage_path('scans/');
-        $path = $folder . $name;
 
-        if (file_exists($path)) {
-            // Delete file
-            unlink($path);
+        foreach ($names as $name) {
+            $path = $folder . $name;
 
-            // Delete preview
-            $prev = $folder . 'prev_' . $name . '.jpg';
-            if (file_exists($prev)) {
-                unlink($prev);
+            if (file_exists($path)) {
+                // Delete file
+                unlink($path);
+
+                // Delete preview
+                $prev = $folder . 'prev_' . $name . '.jpg';
+                if (file_exists($prev)) {
+                    unlink($prev);
+                }
             }
         }
 
