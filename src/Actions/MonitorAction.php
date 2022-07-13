@@ -39,10 +39,12 @@ class MonitorAction
                     $pdf_arg = escapeshellarg($file);
                     $jpg_arg = escapeshellarg($prev);
 
+                    var_dump($prev);
+
                     // Prevent task overlapping
                     exec("tasklist /fi \"ImageName eq convert.exe\"", $task_list);
                     if (count($task_list) === 1) {
-                        exec("convert -density 72 {$pdf_arg} {$jpg_arg}");
+                        exec("convert -density 72 {$pdf_arg}[0] {$jpg_arg}");
                     }
                 }
 
