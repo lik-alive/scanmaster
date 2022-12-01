@@ -37,3 +37,10 @@ if (!function_exists('storage_path')) {
     return  dirname(__DIR__) . "/storage/{$path}";
   }
 }
+
+if (!function_exists('logInfo')) {
+  function logInfo($data)
+  {
+    file_put_contents(dirname(__DIR__) . "/storage/log.txt", $data . "\n", FILE_APPEND);
+  }
+}
