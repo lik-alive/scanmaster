@@ -11,14 +11,14 @@
   <meta name="description" content="Shared environment for scanned documents" />
 
   <meta property="og:title" content="SCAN Master" />
-  <meta property="og:url" content="https://scanmaster.ddns.net" />
+  <meta property="og:url" content="{{ env('SITE_URL') }}" />
   <meta property="og:description" content="Shared environment for scanned documents" />
-  <meta property="og:image" content="https://scanmaster.ddns.net/charm.jpg" />
+  <meta property="og:image" content="{{ env('SITE_URL') }}/charm.jpg" />
   <meta property="og:site_name" content="SCAN Master" />
   <meta property="og:type" content="website" />
 
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="{{ env('BASE_PATH') }}/plugins/bootstrap-icons.min.css">
   <link href="{{ env('BASE_PATH') }}/plugins/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ env('BASE_PATH') }}/styles.css">
 </head>
@@ -38,7 +38,7 @@
   </main>
 
   <footer class='footer mt-auto py-2 px-3 text-center'>
-    2022-2022 — SCAN Master
+    <?php echo date('Y') ?>-2022 — SCAN Master
     <span class='float-end'>©LIK</span>
   </footer>
 
