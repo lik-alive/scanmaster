@@ -19,7 +19,6 @@
           <img class='preview' src="{{ env('BASE_PATH') }}/preview/{{ $scan['prev']}}" />
           @else
           <img class='preview' src="{{ env('BASE_PATH') }}/pdf.png" />
-          <!-- <div class='preview my-4 mx-4' style="background-image: url({{ env('BASE_PATH') }}/pdf.png"></div> -->
           @endif
           @else
           <img class='preview' src="{{ env('BASE_PATH') }}/preview/{{ $scan['file']}}" />

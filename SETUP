@@ -1,7 +1,0 @@
-add
-<policy domain="coder" rights="read | write" pattern="PDF" />
-just before </policymap> in /etc/ImageMagick-7/policy.xml
-
-Permissions
-/storage/cache www-data:*
-/storage/scans www-data:*
