@@ -41,9 +41,9 @@ class MonitorAction
 
                     // Prevent task overlapping
                     $task_list = [];
-                    exec("tasklist /fi \"ImageName eq convert.exe\"", $task_list);
+                    exec("tasklist /fi \"ImageName eq magick.exe\"", $task_list);
                     if (count($task_list) === 1) {
-                        exec("convert -density 72 {$pdf_arg}[0] {$jpg_arg}");
+                        exec("magick -density 72 {$pdf_arg}[0] {$jpg_arg}");
                     }
                 }
 
