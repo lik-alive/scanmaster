@@ -1,5 +1,5 @@
 {
-  "name": "lik_alive/scanmaster",
+  "name": "lik-alive/scanmaster",
   "description": "Shared environment for scanned documents",
   "require": {
     "php": "^7.4 || ^8.0",
